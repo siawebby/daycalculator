@@ -1,0 +1,58 @@
+// Colors
+$primary-color: #161616;
+$secondary-color: #FFFCF1;
+$accent-color: #868BF1;
+$background-light: #CAD0FB;
+$background-options: #F0ECDD;
+
+// Typography
+$font-primary: var(--font-sora), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-manrope: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-inter: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-montserrat: var(--font-montserrat), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-hind: var(--font-hind), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font sizes
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-2xl: 44px;
+$font-size-3xl: 60px;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 24px;
+$spacing-xl: 34px;
+$spacing-2xl: 50px;
+
+// Border radius
+$border-radius-sm: 8px;
+$border-radius-md: 24px;
+$border-radius-lg: 51px;
+$border-radius-full: 50%;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.4s ease;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 767px;
+$breakpoint-lg: 991px;
+$breakpoint-xl: 1200px;
+
+// Z-index
+$z-index-base: 0;
+$z-index-dropdown: 1;
+$z-index-modal: 10;
+$z-index-tooltip: 20;

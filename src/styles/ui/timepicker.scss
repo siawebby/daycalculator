@@ -1,0 +1,113 @@
+// TimePicker styles
+.time-picker {
+  position: relative;
+  display: inline-block;
+  z-index: $z-index-dropdown;
+
+  &--active {
+    z-index: $z-index-modal;
+  }
+
+  &__input {
+    @include input-base;
+    width: 105px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+
+    .placeholder {
+      color: rgba($primary-color, 0.5);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: $spacing-xs;
+    background-color: $secondary-color;
+    border-radius: $border-radius-md;
+    padding: $spacing-xs $spacing-lg;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    min-width: 240px;
+  }
+
+  // Вьюпорт на 3 строки по высоте. Центральная строка — активная.
+  &__viewport {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr 1fr; // HH : MM AM/PM
+    column-gap: $spacing-sm;
+    align-items: stretch;
+    overflow: hidden;
+    height: calc(3 * 56px); // три строки, высота одной строки 56px
+    border-radius: $border-radius-md;
+    background: $secondary-color;
+
+    // Линии-разделители на всю ширину для верхней и нижней границ центральной строки
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba($primary-color, 0.12);
+      pointer-events: none;
+    }
+    &::before { top: 56px; }
+    &::after { top: 112px; }
+  }
+
+  &__column {
+    overflow-y: auto;
+    max-height: 100%;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE 10+
+    &::-webkit-scrollbar { display: none; } // Chrome/Safari
+    padding: 0 $spacing-xs;
+    
+    // Scroll snap для фиксированного скролла
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  &__column--meridian {
+    width: 64px;
+  }
+
+  &__separator {
+    font-weight: $font-weight-medium;
+  }
+ 
+  &__item { 
+    height: 56px;
+    border-radius: $border-radius-sm; 
+    font-family: $font-inter;
+    color: rgba($primary-color, 0.5);
+    cursor: pointer;
+    transition: color $transition-fast;
+    font-weight: $font-weight-medium;
+    
+    // Scroll snap для каждого элемента 
+    scroll-snap-align: center;
+
+    &.active {
+      color: $primary-color;
+      font-weight: $font-weight-semibold;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: $border-radius-md;
+  }
+}
+
+

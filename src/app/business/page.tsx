@@ -1,27 +1,39 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Input, Checkbox, SettingItem, Icon } from '../components/ui';
-import { DaysCounter } from '../components/DaysCounter';
-import OptionsSection from '../components/OptionsSection';
-import InfoSection from '../components/InfoSection';
+import { Input, Checkbox, SettingItem, Select, Icon } from '../../components/ui';
+import { DaysCounter } from '../../components/DaysCounter';
+import OptionsSection from '../../components/OptionsSection';
+import InfoSection from '../../components/InfoSection';
 
-export default function Home() {
+export default function BusinessPage() {
   const [includeLastDay, setIncludeLastDay] = useState(false);
   const [businessDaysOnly, setBusinessDaysOnly] = useState(false);
   const [startDate, setStartDate] = useState('23 Sep, 2025');
   const [startTime, setStartTime] = useState('12 p.m.');
   const [endDate, setEndDate] = useState('23 Sep, 2025');
   const [endTime, setEndTime] = useState('12 p.m.');
+  const [weekendPattern, setWeekendPattern] = useState('Sat+Sun');
+  const [state, setState] = useState('Germany');
   const [activeDatePicker, setActiveDatePicker] = useState<'start' | 'end' | null>(null);
 
+  const weekendOptions = [
+    { value: 'Sat+Sun', label: 'Sat+Sun' },
+    { value: 'Fri+Sat', label: 'Fri+Sat' },
+    { value: 'Sun+Mon', label: 'Sun+Mon' }
+  ];
+
+  const stateOptions = [
+    { value: 'Germany', label: 'Germany' },
+    { value: 'USA', label: 'USA' },
+    { value: 'UK', label: 'UK' }
+  ];
+
   const handleRefresh = () => {
-    // Logic for refresh
     console.log('Refresh clicked');
   };
 
   const handleExport = () => {
-    // Logic for export
     console.log('Export clicked');
   };
 
@@ -72,7 +84,7 @@ export default function Home() {
               <SettingItem label="End" icon="nav/calendar">
                   <Input 
                     variant="date" 
-                    value={endDate} 
+                    value={endDate}  
                     onDateChange={handleEndDateChange}
                     isActive={activeDatePicker === 'end'}
                     onClose={handleCloseDatePicker}
@@ -85,11 +97,19 @@ export default function Home() {
                   />
               </SettingItem>
               
-              <SettingItem label="Include last day" icon="bookmark">
-                <Checkbox
-                  id="include-last-day"
-                  checked={includeLastDay} 
-                  onChange={setIncludeLastDay}
+              <SettingItem label="Weekend pattern" icon="smile">
+                <Select
+                  options={weekendOptions}
+                  value={weekendPattern}
+                  onChange={(value) => setWeekendPattern(value)}
+                />
+              </SettingItem>
+              
+              <SettingItem label="State" icon="location">
+                <Select
+                  options={stateOptions}
+                  value={state}
+                  onChange={(value) => setState(value)}
                 />
               </SettingItem>
               
@@ -104,10 +124,15 @@ export default function Home() {
           </div>
           
           <DaysCounter
-            days={50}
-            weeks={12}
-            months={3}
-            years={1}
+            days={41}
+            additionalInfo="58 calendar days - 17 days skipped"
+            excludedInfo={{
+              saturdays: 8,
+              sundays: 8,
+              holidays: [
+                { name: 'Day of German Unity', count: 1 }
+              ]
+            }}
             onRefresh={handleRefresh}
             onExport={handleExport}
           />

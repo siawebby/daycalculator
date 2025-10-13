@@ -1,0 +1,150 @@
+@import './variables.scss';
+
+// Button mixins
+@mixin button-base {
+  border: none;
+  cursor: pointer;
+  transition: all $transition-normal;
+  outline: none;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $accent-color;
+  color: $primary-color;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xs $spacing-md;
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $accent-color;
+  color: $primary-color;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xs $spacing-md;
+  font-size: $font-size-sm;
+}
+
+@mixin button-icon {
+  @include button-base;
+  width: 36px;
+  height: 36px;
+  border-radius: $border-radius-full;
+  background-color: $secondary-color;
+}
+
+// Input mixins
+@mixin input-base {
+  padding: $spacing-xs $spacing-md;
+  background-color: $accent-color;
+  color: $primary-color;
+  border-radius: $border-radius-sm;
+  border: none;
+  outline: none;
+  z-index: $z-index-base;
+}
+
+@mixin input-date {
+  @include input-base;
+  width: 129px;
+}
+
+@mixin input-time {
+  @include input-base;
+  width: 79px;
+}
+
+@mixin input-day {
+  @include input-base;
+  width: 48px; 
+  text-align: center;
+}
+
+@mixin input-text {
+  @include input-base;
+  width: 140px;
+}
+
+// Select mixins
+@mixin select-base {
+  background-color: $accent-color;
+  color: $primary-color;
+  border-radius: $border-radius-sm;
+  min-width: 101px;
+  padding: $spacing-xs 0;
+  border: none;
+  outline: none;
+}
+
+// Checkbox mixins
+@mixin checkbox-base {
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+}
+
+@mixin checkbox-custom {
+  background-color: $accent-color;
+  color: $primary-color;
+  border-radius: $border-radius-sm;
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: all $transition-fast;
+}
+
+// Container mixins
+@mixin setting-container {
+  border-radius: $border-radius-md;
+  padding: $spacing-xl;
+  background-color: $background-light;
+  width: 50%;
+}
+
+@mixin days-container {
+  width: 50%;
+  border-radius: $border-radius-md;
+  background-color: $primary-color;
+  padding: $spacing-xl;
+  position: relative;
+  overflow: hidden;
+  z-index: $z-index-base;
+}
+
+// Responsive mixins
+@mixin mobile {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// Hover effects
+@mixin hover-lift {
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@mixin hover-scale {
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

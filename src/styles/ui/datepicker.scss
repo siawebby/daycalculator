@@ -1,0 +1,156 @@
+// DatePicker styles
+.date-picker {
+  position: relative;
+  display: inline-block;
+  z-index: $z-index-dropdown;
+
+  &--active {
+    z-index: $z-index-modal;
+  }
+
+  &__input {
+    @include input-base;
+    width: 135px;
+    cursor: pointer;
+    user-select: none;
+
+    .placeholder {
+      color: rgba($primary-color, 0.5);
+    }
+
+    @include mobile {
+      width: 140px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 130px;
+    }
+  }
+
+  &__calendar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: $z-index-modal;
+    margin-top: $spacing-xs;
+    background-color: $secondary-color;
+    border-radius: $border-radius-md;
+    padding: $spacing-lg $spacing-md;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    min-width: 280px;
+
+    @include mobile {
+      left: -50%;
+      min-width: 260px;
+    }
+  }
+
+  &__header {
+    margin-bottom: $spacing-md;
+  }
+
+  &__month-year {
+    gap: $spacing-xs;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-lg;
+    color: $primary-color;
+    font-family: $font-manrope;
+  }
+
+  &__navigation {
+    gap: $spacing-sm;
+  }
+
+  &__nav-btn {
+    @include button-base;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  &__days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $spacing-xs;
+  }
+
+  &__day-header {
+    text-align: center;
+    font-size: $font-size-sm;
+    color: rgba($primary-color, 0.6);
+    font-weight: $font-weight-medium;
+    padding: $spacing-xs;
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &__day {
+    width: 42px;
+    height: 42px;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    font-size: $font-size-lg;
+    color: $primary-color;
+    transition: all $transition-fast;
+    position: relative;
+    font-family: $font-manrope;
+    border-radius: $spacing-2xl;
+
+    &:hover:not(.empty) {
+      background-color: $background-light;
+    }
+
+    &.today {
+      font-weight: $font-weight-semibold;
+    }
+
+    &.selected {
+      background-color: $accent-color;
+      color: $primary-color;
+      font-weight: $font-weight-semibold;
+    }
+
+    &.empty {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &__year-picker {
+    margin-top: $spacing-md;
+  }
+
+  &__year-list {
+    max-height: 200px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-xs;
+    font-family: $font-manrope;
+
+    @include mobile {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__year-item {
+    padding: $spacing-xs $spacing-sm;
+    text-align: center;
+    border-radius: $border-radius-sm;
+    cursor: pointer;
+    font-size: $font-size-sm;
+    color: $primary-color;
+    transition: all $transition-fast;
+
+    &:hover {
+      background-color: $background-light;
+    }
+
+    &.selected {
+      background-color: $accent-color;
+      color: $primary-color;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}

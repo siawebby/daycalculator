@@ -1,0 +1,110 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+// Import component styles
+@import '../ui/input.scss';
+@import '../ui/button.scss';
+@import '../ui/checkbox.scss';
+@import '../ui/switcher.scss';
+@import '../ui/upload.scss';
+@import '../ui/datepicker.scss';
+
+// Settings layout styles
+.params-list {
+  gap: $spacing-md;
+  
+  @include tablet {
+    flex-direction: column;
+  }
+}
+
+.setting-container {
+  @include setting-container;
+  
+  .setting-list {
+    gap: $spacing-lg;
+    
+    .setting-item {
+      position: relative;
+      
+      &:not(:last-child) {
+        padding-bottom: $spacing-lg;
+        
+        &::after {
+          content: "";
+          display: block;
+          height: 1px;
+          width: 100%;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          opacity: 0.05;
+          background-color: $primary-color;
+        }
+      }
+      
+      .setting-label {
+        gap: $spacing-md;
+      }
+      
+      .setting-input {
+        gap: $spacing-xs;
+      }
+    }
+  }
+  
+  &--row {
+    width: 100%;
+    padding: $spacing-md $spacing-xl;
+    border-radius: $border-radius-lg;
+    
+    .setting-list {
+      gap: $spacing-xl;
+      
+      .setting-item {
+        gap: 10px;
+        
+        &:not(:last-child) {
+          padding-bottom: 0;
+        }
+      }
+    }
+    
+    @include mobile {
+      flex-direction: column-reverse;
+      border-radius: $border-radius-md;
+      gap: 10px;
+    }
+  }
+  
+  @include tablet {
+    width: 100%;
+  }
+  
+  @include mobile {
+    padding: $spacing-lg;
+    
+    .setting-list {
+      gap: $spacing-lg;
+      
+      .setting-item {
+        &:not(:last-child) {
+          padding-bottom: $spacing-lg;
+        }
+        
+        .setting-input {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg $spacing-md;
+    
+    .setting-label {
+      font-size: $font-size-sm;
+    }
+  }
+}

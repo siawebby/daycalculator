@@ -1,0 +1,55 @@
+// Upload styles
+.upload-container {
+  width: 50%;
+  
+  @include tablet {
+    width: 100%;
+  }
+  
+  .upload-input {
+    display: none;
+  }
+  
+  .btn-browse {
+    @include button-secondary;
+  }
+  
+  .upload-dropzone {
+    border-radius: $border-radius-md;
+    background-color: $background-light;
+    min-height: 180px;
+    padding: $spacing-xl;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+    position: relative;
+    
+    &:hover {
+      background-color: #d3d8fc;
+    }
+    
+    .upload-content {
+      .upload-title {
+        margin-bottom: $spacing-xs;
+        font-size: $font-size-lg;
+      }
+      
+      .upload-subtitle {
+        opacity: 0.5;
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-lg;
+      }
+    }
+    
+    &::after {
+      content: "";
+      width: calc(100% - $spacing-lg);
+      height: calc(100% - $spacing-lg);
+      border: 2px dashed rgba(22, 22, 22, 0.4);
+      position: absolute;
+      left: $spacing-md;
+      top: $spacing-md;
+      border-radius: $border-radius-md;
+    }
+  }
+}

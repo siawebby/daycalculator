@@ -1,0 +1,118 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.days-container {
+  @include days-container;
+  
+  &--row {
+    width: 100%;
+    padding: $spacing-xl $spacing-2xl;
+    min-height: 240px;
+  }
+  
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: $z-index-base;
+    background-repeat: no-repeat;
+    background-image: url("/assets/img/days_counter.svg");
+    background-position: top right;
+  }
+  
+  &__top {
+    position: relative;
+    z-index: $z-index-dropdown;
+    
+    a {
+      font-family: $font-inter;
+      font-weight: $font-weight-medium;
+      color: $secondary-color;
+    }
+  }
+  
+  &__bottom {
+    position: relative;
+    z-index: $z-index-dropdown;
+    margin-top: auto;
+    
+    .day-number {
+      font-family: $font-manrope;
+      font-weight: $font-weight-medium;
+      color: $accent-color;
+      font-size: $font-size-3xl;
+      margin-bottom: $spacing-md;
+    }
+    
+    .day-business {
+      color: $secondary-color;
+      margin-bottom: $spacing-lg;
+    }
+    
+    .day-options {
+      &__text {
+        gap: $spacing-xs 10px;
+        opacity: 0.8;
+        
+        &,
+        > * {
+          color: $secondary-color;
+        }
+      }
+      
+      &__buttons {
+        gap: 10px;
+        
+        > button {
+          @include button-icon;
+        
+        }
+      }
+    }
+  }
+  
+  @include tablet {
+    width: 100%;
+    padding: $spacing-xl;
+    
+    &--row {
+      padding: $spacing-xl;
+      min-height: 220px;
+    }
+  }
+  
+  @include mobile {
+    padding: $spacing-md;
+    min-height: 220px;
+    
+    &::after {
+      background-image: url("/assets/img/days_counter_mobile.svg");
+    }
+    
+    &__bottom {
+      .day-number {
+        font-size: $font-size-2xl;
+      }
+      
+      .day-business {
+        margin-bottom: $spacing-md;
+      }
+      
+      .day-options {
+        gap: $spacing-md;
+        
+        &__text,
+        &__text > * {
+          font-size: $font-size-sm;
+        }
+        
+        &__buttons .refresh-btn {
+          display: none;
+        }
+      }
+    }
+  }
+}

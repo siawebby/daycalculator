@@ -1,0 +1,49 @@
+// Input styles
+.input-base {
+  @include input-base;
+}
+
+.input-date {
+  @include input-date;
+  
+  @include mobile {
+    width: 140px;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 120px;
+  }
+}
+
+.input-time {
+  @include input-time;
+  
+  @include mobile {
+    width: 90px;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    width: 80px;
+  }
+}
+
+.input-day {
+  @include input-day;
+  
+  @include mobile {
+    width: 56px;
+  }
+}
+
+.input-text {
+  @include input-text;
+}
+
+// Select styles
+.select-base {
+  @include select-base;
+  
+  @include mobile {
+    min-width: 120px;
+  }
+}

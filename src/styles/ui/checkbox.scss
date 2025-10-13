@@ -1,0 +1,32 @@
+// Checkbox styles
+.checkbox-label {
+  @include checkbox-base;
+  
+  .checkbox-hidden {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .checkbox-custom {
+    @include checkbox-custom;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      left: $spacing-xs;
+      top: $spacing-xs;
+      background-image: url("/assets/icons/check.svg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 16px;
+      height: 16px;
+      opacity: 0;
+      transition: opacity $transition-fast;
+    }
+  }
+  
+  .checkbox-hidden:checked + .checkbox-custom::after {
+    opacity: 1;
+  }
+}

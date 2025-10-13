@@ -1,0 +1,74 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+// Options and Info Text
+.options-text,
+.info-text {
+  margin-top: $spacing-xl;
+  
+  h2 {
+    font-family: $font-manrope;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+  }
+  
+  @include mobile {
+    margin-top: $spacing-lg;
+  }
+}
+
+.options-text {
+  .options-container {
+    margin-top: $spacing-lg;
+    padding: $spacing-xl;
+    background-color: $background-options;
+    border-radius: $border-radius-md;
+    
+    .option-item {
+      gap: $spacing-lg;
+      
+      h3 {
+        font-family: $font-montserrat;
+        font-weight: $font-weight-semibold;
+        font-size: $font-size-lg;
+      }
+      
+      p {
+        font-family: $font-hind;
+        font-size: $font-size-sm;
+        opacity: 0.5;
+        font-weight: $font-weight-medium;
+        line-height: 120%;
+      }
+    }
+    
+    @include mobile {
+      margin-top: $spacing-md;
+      padding: $spacing-lg;
+      
+      .row {
+        gap: $spacing-lg;
+        
+        .option-item {
+          gap: $spacing-md;
+        }
+      }
+    }
+  }
+}
+
+.info-text {
+  &__content {
+    margin-top: $spacing-lg;
+    
+    &,
+    > * {
+      font-family: $font-manrope;
+      font-weight: $font-weight-medium;
+    }
+    
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
