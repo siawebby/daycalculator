@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Icon } from './Icon';
+import { Icon, Button } from './';
 
 interface DatePickerProps {
   value: string;
@@ -180,18 +180,18 @@ export const DatePicker: React.FC<DatePickerProps> = ({
             </div> 
             {!showYearPicker && (
               <div className="date-picker__navigation d-flex">
-                <button 
+                <Button 
                   className="date-picker__nav-btn d-flex align-items-center justify-content-center"
                   onClick={handlePrevMonth}
                 >
                   <Icon name="calendar/month_prev" size="md" />
-                </button>
-                <button  
+                </Button>
+                <Button  
                   className="date-picker__nav-btn d-flex align-items-center justify-content-center"
                   onClick={handleNextMonth} 
                 >
                   <Icon name="calendar/month_next" size="md" />
-                </button>
+                </Button>
               </div>
             )}
           </div>

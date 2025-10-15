@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Button } from './';
 
 interface SwitcherProps {
   options: { value: string; label: string }[];
@@ -20,13 +21,13 @@ export const Switcher: React.FC<SwitcherProps> = ({
   return (
     <div className={`switcher switcher--${variant} ${className} d-flex`}>
       {options.map((option) => (
-        <button
+        <Button
           key={option.value}
           className={activeValue === option.value ? 'active' : ''}
           onClick={() => onChange(option.value)}
         >
           {option.label}
-        </button>
+        </Button>
       ))}
     </div>
   );

@@ -38,12 +38,3 @@
 .input-text {
   @include input-text;
 }
-
-// Select styles
-.select-base {
-  @include select-base;
-  
-  @include mobile {
-    min-width: 120px;
-  }
-}

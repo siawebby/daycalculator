@@ -1,130 +1,17 @@
-'use client';
+import type { Metadata } from "next";
 
-import React, { useState } from 'react';
-import { Input, Checkbox, SettingItem, Select, Switcher, Icon } from '../../components/ui';
-import { DaysCounter } from '../../components/DaysCounter';
-import OptionsSection from '../../components/OptionsSection';
-import InfoSection from '../../components/InfoSection';
+export const metadata: Metadata = {
+  title: "Add or Subtract Days Calculator - Date Arithmetic Tool",
+  description: "Add or subtract days, weeks, months, and years from any date. Calculate future or past dates with precision. Perfect for scheduling, planning, and date arithmetic.",
+  keywords: "add days to date, subtract days from date, date arithmetic, future date calculator, past date calculator, date addition, date subtraction",
+  openGraph: {
+    title: "Add or Subtract Days Calculator - Date Arithmetic Tool",
+    description: "Add or subtract days, weeks, months, and years from any date. Calculate future or past dates with precision.",
+    type: "website",
+  },
+};
 
+import SubstractPageClient from '../../components/pages/SubstractPageClient';
 export default function SubstractPage() {
-  const [includeLastDay, setIncludeLastDay] = useState(false);
-  const [businessDaysOnly, setBusinessDaysOnly] = useState(false);
-  const [startDate, setStartDate] = useState('23 Sep, 2025');
-  const [startTime, setStartTime] = useState('12 p.m.');
-  const [amount, setAmount] = useState('15');
-  const [amountType, setAmountType] = useState('Months');
-  const [switcherValue, setSwitcherValue] = useState('Add');
-  const [activeDatePicker, setActiveDatePicker] = useState<boolean>(false);
-
-  const amountOptions = [
-    { value: 'Months', label: 'Months' },
-    { value: 'Days', label: 'Days' },
-    { value: 'Weeks', label: 'Weeks' }
-  ];
-
-  const switcherOptions = [
-    { value: 'Add', label: 'Add' },
-    { value: 'Subtract', label: 'Subtract' }
-  ];
-
-  const handleRefresh = () => {
-    console.log('Refresh clicked');
-  };
-
-  const handleExport = () => {
-    console.log('Export clicked');
-  };
-
-  const handleDateChange = (value: string) => {
-    setStartDate(value);
-    setActiveDatePicker(true);
-  };
-
-  const handleOpenDatePicker = () => {
-    setActiveDatePicker(true);
-  };
-
-  const handleCloseDatePicker = () => {
-    setActiveDatePicker(false);
-  };
-
-  return (
-    <main className="substract">
-      <div className="container">
-        <Switcher
-          options={switcherOptions}
-          activeValue={switcherValue}
-          onChange={setSwitcherValue}
-          variant="default"
-        />
-
-        <section className="params-list d-flex justify-content-between">
-          <div className="setting-container">
-            <div className="setting-list d-flex flex-column">
-              <SettingItem label="Start" icon="nav/calendar">
-                <Input
-                  variant="date"
-                  value={startDate}
-                  onDateChange={handleDateChange}
-                  isActive={activeDatePicker}
-                  onClose={handleCloseDatePicker}
-                  onOpen={handleOpenDatePicker}
-                />
-                <Input
-                  variant="time"
-                  value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
-                />
-              </SettingItem>
-
-              <SettingItem label="Amount" icon="chart_pie">
-                <Input
-                  variant="day"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                />
-                <Select
-                  options={amountOptions}
-                  value={amountType}
-                  onChange={(value) => setAmountType(value)}
-                />
-              </SettingItem>
-
-              <SettingItem label="Include last day" icon="bookmark">
-                <Checkbox
-                  id="include-last-day"
-                  checked={includeLastDay}
-                  onChange={setIncludeLastDay}
-                />
-              </SettingItem>
-
-              <SettingItem label="Business days only" icon="nav/portfolio">
-                <Checkbox
-                  id="include-last-day_2"
-                  checked={businessDaysOnly}
-                  onChange={setBusinessDaysOnly}
-                />
-              </SettingItem>
-            </div>
-          </div>
-
-          <DaysCounter
-            days={50}
-            weeks={12}
-            months={3}
-            years={1} 
-            onRefresh={handleRefresh}
-            onExport={handleExport}
-          />
-
-          <button className="refresh-mobile">
-            <Icon name="days_counter/refresh_white" /> Reload
-          </button>
-        </section>
-
-        <OptionsSection />
-        <InfoSection />
-      </div>
-    </main>
-  );
+  return <SubstractPageClient />;
 }

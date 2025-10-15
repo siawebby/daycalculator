@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Icon } from './ui/Icon';
+import { Icon, Button } from './ui';
 
 interface DaysCounterProps {
   days: number;
@@ -17,6 +17,8 @@ interface DaysCounterProps {
   onRefresh?: () => void;
   onExport?: () => void;
   className?: string;
+  variant?: 'default' | 'row';
+  resultText?: string;
 }
 
 export const DaysCounter: React.FC<DaysCounterProps> = ({
@@ -28,14 +30,20 @@ export const DaysCounter: React.FC<DaysCounterProps> = ({
   excludedInfo,
   onRefresh,
   onExport,
-  className = ''
+  className = '',
+  variant = 'default',
+  resultText
 }) => {
+  const containerClass = variant === 'row' 
+    ? `days-container days-container--row d-flex flex-column ${className}`
+    : `days-container d-flex flex-column ${className}`;
+
   return (
-    <div className={`days-container d-flex flex-column ${className}`}>
+    <div className={containerClass}>
       <div className="days-container__top">
-        <a href="#">
-          Result <Icon name="days_counter/arrow" size='sm' />
-        </a>
+        <span> 
+          Result <Icon name="days_counter/arrow" size={variant === 'row' ? undefined : 'sm'} />
+        </span>
       </div>
       <div className="days-container__bottom">
         <div className="day-number">
@@ -48,7 +56,9 @@ export const DaysCounter: React.FC<DaysCounterProps> = ({
         )}
         <div className="day-options d-flex justify-content-between align-items-streetch">
           <div className="day-options__text d-flex flex-wrap align-items-center">
-            {excludedInfo ? (
+            {resultText ? (
+              resultText
+            ) : excludedInfo ? (
               <>
                 Excluded:
                 {excludedInfo.saturdays && (
@@ -82,14 +92,14 @@ export const DaysCounter: React.FC<DaysCounterProps> = ({
           </div>
           <div className="day-options__buttons d-flex align-items-end">
             {onRefresh && (
-              <button className="refresh-btn" onClick={onRefresh}>
+              <Button className="refresh-btn" variant="refresh" onClick={onRefresh}>
                 <Icon name="days_counter/refresh" />
-              </button>
+              </Button>
             )}
             {onExport && (
-              <button onClick={onExport}>
+              <Button onClick={onExport} variant="export">
                 <Icon name="days_counter/export" />
-              </button>
+              </Button>
             )}
           </div>
         </div>

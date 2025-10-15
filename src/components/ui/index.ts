@@ -9,4 +9,4 @@ export { Icon } from './Icon';
 export { SettingItem } from './SettingItem';
 export { DatePicker } from './DatePicker';
 export { TimePicker } from './TimePicker';
-export { ImageCropModal } from './ImageCropModal';
+export { Modal } from './Modal';

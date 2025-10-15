@@ -25,7 +25,7 @@
     position: relative;
     
     &:hover {
-      background-color: #d3d8fc;
+      background-color: rgba($background-light, 0.8);
     }
     
     .upload-content {
@@ -39,13 +39,13 @@
         font-size: $font-size-sm;
         margin-bottom: $spacing-lg;
       }
-    }
+    } 
     
     &::after {
       content: "";
       width: calc(100% - $spacing-lg);
       height: calc(100% - $spacing-lg);
-      border: 2px dashed rgba(22, 22, 22, 0.4);
+      border: 2px dashed rgba($primary-color, 0.4);
       position: absolute;
       left: $spacing-md;
       top: $spacing-md;

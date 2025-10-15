@@ -7,18 +7,18 @@ const OptionsSection: React.FC = () => {
   const options = [
     {
       icon: 'calendar',
-      title: 'Count Business Days',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      title: 'Business Days Calculator',
+      description: 'Calculate working days between two dates, excluding weekends and holidays. Perfect for project planning, contract deadlines, and business scheduling. Get accurate business day counts for any date range.'
     },
     {
       icon: 'calendar',
-      title: 'Count Business Days',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      title: 'Countdown Timer',
+      description: 'Create countdown timers for important events like birthdays, holidays, project deadlines, and special occasions. Track time remaining with precision down to the minute.'
     },
     {
       icon: 'calendar',
-      title: 'Count Business Days',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      title: 'Date Difference Calculator',
+      description: 'Calculate the exact number of days, weeks, months, and years between any two dates with precision. Perfect for age calculations, project timelines, and date comparisons.'
     }
   ];
 

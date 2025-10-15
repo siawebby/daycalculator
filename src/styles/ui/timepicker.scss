@@ -28,11 +28,11 @@
     background-color: $secondary-color;
     border-radius: $border-radius-md;
     padding: $spacing-xs $spacing-lg;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba($primary-color, 0.1);
     min-width: 240px;
   }
 
-  // Вьюпорт на 3 строки по высоте. Центральная строка — активная.
+  // Вьюпорт на 3 строки по высоте. Централ ьная строка — активная.
   &__viewport {
     position: relative;
     display: grid;
@@ -86,7 +86,7 @@
     font-family: $font-inter;
     color: rgba($primary-color, 0.5);
     cursor: pointer;
-    transition: color $transition-fast;
+    transition: color $transition-fast; 
     font-weight: $font-weight-medium;
     
     // Scroll snap для каждого элемента 

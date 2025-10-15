@@ -63,18 +63,7 @@
 @mixin input-text {
   @include input-base;
   width: 140px;
-}
-
-// Select mixins
-@mixin select-base {
-  background-color: $accent-color;
-  color: $primary-color;
-  border-radius: $border-radius-sm;
-  min-width: 101px;
-  padding: $spacing-xs 0;
-  border: none;
-  outline: none;
-}
+} 
 
 // Checkbox mixins
 @mixin checkbox-base {
@@ -129,22 +118,5 @@
 @mixin desktop {
   @media (min-width: $breakpoint-lg) {
     @content;
-  }
-}
-
-// Hover effects
-@mixin hover-lift {
-  transition: transform $transition-normal;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-}
-
-@mixin hover-scale {
-  transition: transform $transition-normal;
-
-  &:hover {
-    transform: scale(1.05);
   }
 }

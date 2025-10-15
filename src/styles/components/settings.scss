@@ -1,14 +1,3 @@
-@import '../variables.scss';
-@import '../mixins.scss';
-
-// Import component styles
-@import '../ui/input.scss';
-@import '../ui/button.scss';
-@import '../ui/checkbox.scss';
-@import '../ui/switcher.scss';
-@import '../ui/upload.scss';
-@import '../ui/datepicker.scss';
-
 // Settings layout styles
 .params-list {
   gap: $spacing-md;
@@ -17,7 +6,7 @@
     flex-direction: column;
   }
 }
-
+ 
 .setting-container {
   @include setting-container;
   

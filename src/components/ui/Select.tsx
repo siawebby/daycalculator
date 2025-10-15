@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import { Icon } from './Icon';
 
 interface SelectOption {
@@ -76,28 +77,35 @@ export const Select: React.FC<SelectProps> = ({
       className={`custom-select ${isOpen ? 'custom-select--open' : ''} ${disabled ? 'custom-select--disabled' : ''} ${className}`}
     >
       <div
-        className="custom-select__trigger"
+        className="custom-select__trigger d-flex align-items-center justify-content-between"
         onClick={handleToggle}
       >
         <span className={`custom-select__value ${!selectedOption ? 'custom-select__placeholder' : ''}`}>
           {displayText}
         </span>
-        <span className={`custom-select__arrow ${isOpen ? 'custom-select__arrow--up' : ''}`}>
+        <span className={`custom-select__arrow d-flex align-items-center justify-content-center ${isOpen ? 'custom-select__arrow--up' : ''}`}>
           <Icon name="select_arrow" size='sm' />
         </span>
       </div>
 
       {isOpen && (
         <div className="custom-select__dropdown">
-          {options.map((option) => (
-            <div
-              key={option.value}
-              className={`custom-select__option ${option.value === selectedValue ? 'custom-select__option--selected' : ''}`}
-              onClick={() => handleOptionClick(option.value)}
-            >
-              {option.label}
-            </div>
-          ))}
+          <PerfectScrollbar
+            options={{
+              suppressScrollX: true,
+              wheelPropagation: false,
+            }}
+          >
+            {options.map((option) => (
+              <div
+                key={option.value}
+                className={`custom-select__option ${option.value === selectedValue ? 'custom-select__option--selected' : ''}`}
+                onClick={() => handleOptionClick(option.value)}
+              >
+                {option.label}
+              </div>
+            ))}
+          </PerfectScrollbar>
         </div>
       )}
     </div>

@@ -1,6 +1,3 @@
-@import '../variables.scss';
-@import '../mixins.scss';
-
 .days-container {
   @include days-container;
   
@@ -27,7 +24,7 @@
     position: relative;
     z-index: $z-index-dropdown;
     
-    a {
+    span {
       font-family: $font-inter;
       font-weight: $font-weight-medium;
       color: $secondary-color;
@@ -65,11 +62,6 @@
       
       &__buttons {
         gap: 10px;
-        
-        > button {
-          @include button-icon;
-        
-        }
       }
     }
   }
@@ -99,7 +91,7 @@
       
       .day-business {
         margin-bottom: $spacing-md;
-      }
+      } 
       
       .day-options {
         gap: $spacing-md;
