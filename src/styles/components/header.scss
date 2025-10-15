@@ -1,20 +1,28 @@
 header {
   .header-logo {
     padding: $spacing-xl 0;
-    
+
     img {
       width: 165px;
     }
-    
+
     @include tablet {
       padding: $spacing-lg 0;
     }
   }
-  
+
   .header-menu {
+    position: relative;
+
+    @include mobile {
+      margin-left: -12px;
+      width: 100vw; 
+      padding: 0 $spacing-xs;
+    }
+
     ul {
       gap: 10px;
-      
+
       li {
         a {
           font-family: $font-manrope;
@@ -24,43 +32,52 @@ header {
           border: 2px solid $primary-color;
           gap: $spacing-xs;
           transition: all $transition-normal;
-          
-          &:hover {
+
+          &:hover,
+          &.active {
             background-color: $primary-color;
             color: $secondary-color;
             transition: all $transition-normal;
-            
+
             .link-icon {
               display: none;
             }
-            
+
             .link-icon--hover {
               display: inline;
             }
           }
-          
+
           .link-icon,
           .link-icon--hover {
             width: 16px;
             height: 16px;
           }
-          
+
           .link-icon--hover {
             display: none;
           }
         }
       }
     }
-    
+
     @include tablet {
-      ul li:nth-child(n+4) {
-        display: none;
-      }
-    }
-    
-    @include mobile {
-      ul li:nth-child(n+3) {
-        display: none;
+      .slider-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        flex: 1;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .slider-item {
+          flex-shrink: 0;
+          white-space: nowrap;
+        }
       }
     }
   }

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { Icon, Button } from './ui';
 
 interface DaysCounterProps {
@@ -34,6 +35,7 @@ export const DaysCounter: React.FC<DaysCounterProps> = ({
   variant = 'default',
   resultText
 }) => {
+  const t = useTranslations('common');
   const containerClass = variant === 'row' 
     ? `days-container days-container--row d-flex flex-column ${className}`
     : `days-container d-flex flex-column ${className}`;
@@ -42,12 +44,12 @@ export const DaysCounter: React.FC<DaysCounterProps> = ({
     <div className={containerClass}>
       <div className="days-container__top">
         <span> 
-          Result <Icon name="days_counter/arrow" size={variant === 'row' ? undefined : 'sm'} />
+          {t('result')} <Icon name="days_counter/arrow" size={variant === 'row' ? undefined : 'sm'} />
         </span>
       </div>
       <div className="days-container__bottom">
         <div className="day-number">
-          {days} days
+          {days} {t('days')}
         </div>
         {additionalInfo && (
           <div className="day-business">
@@ -60,33 +62,33 @@ export const DaysCounter: React.FC<DaysCounterProps> = ({
               resultText
             ) : excludedInfo ? (
               <>
-                Excluded:
+                {t('excluded')}
                 {excludedInfo.saturdays && (
                   <>
-                    <span>{excludedInfo.saturdays} Saturday{excludedInfo.saturdays !== 1 ? 's' : ''}</span>
+                    <span>{excludedInfo.saturdays} {excludedInfo.saturdays !== 1 ? t('saturdays') : t('saturday')}</span>
                     {(excludedInfo.sundays || excludedInfo.holidays?.length) && <span>/</span>}
                   </>
                 )}
                 {excludedInfo.sundays && (
                   <>
-                    <span>{excludedInfo.sundays} Sunday{excludedInfo.sundays !== 1 ? 's' : ''}</span>
+                    <span>{excludedInfo.sundays} {excludedInfo.sundays !== 1 ? t('sundays') : t('sunday')}</span>
                     {excludedInfo.holidays?.length && <span>/</span>}
                   </>
                 )}
                 {excludedInfo.holidays?.map((holiday, index) => (
                   <span key={index}>
-                    {holiday.count} holiday{holiday.count !== 1 ? 's' : ''} ({holiday.name})
+                    {holiday.count} {holiday.count !== 1 ? t('holidays') : t('holiday')} ({holiday.name})
                     {index < excludedInfo.holidays!.length - 1 && <span>/</span>}
                   </span>
                 ))}
               </>
             ) : (
               <>
-                {weeks && <span>{weeks} weeks</span>}
+                {weeks && <span>{weeks} {t('weeks')}</span>}
                 {weeks && months && <span>/</span>}
-                {months && <span>{months} months</span>}
+                {months && <span>{months} {t('months')}</span>}
                 {months && years && <span>/</span>}
-                {years && <span>{years} years</span>}
+                {years && <span>{years} {t('years')}</span>}
               </>
             )}
           </div>

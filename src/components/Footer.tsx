@@ -1,8 +1,11 @@
 'use client';
 
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 const Footer: React.FC = () => {
+    const t = useTranslations('footer');
+    
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -15,15 +18,15 @@ const Footer: React.FC = () => {
             <div className="container">
                 <div className="footer-container d-flex align-items-center justify-content-between">
                     <div className="footer-copyright">
-                        © 2025. DayСalсulator
+                        {t('copyright')}
                     </div>
                     <div className="footer-top" onClick={scrollToTop}>
-                        Наверх
+                        {t('backToTop')}
                     </div>
                 </div>
             </div>
         </footer>
-    ); 
+    );
 };
 
 export default Footer;

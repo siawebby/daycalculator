@@ -1,12 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Input, Checkbox, SettingItem, Switcher, Icon, Button } from '../ui';
 import { DaysCounter } from '../DaysCounter';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
 
 export default function SincePageClient() {
+  const t = useTranslations('common');
+  const tSwitcher = useTranslations('switcherOptions');
+  const tSince = useTranslations('since');
+  
   const [includeLastDay, setIncludeLastDay] = useState(false);
   const [date, setDate] = useState('23 Sep, 2025');
   const [time, setTime] = useState('12 p.m.');
@@ -14,8 +19,8 @@ export default function SincePageClient() {
   const [activeDatePicker, setActiveDatePicker] = useState<boolean>(false);
 
   const switcherOptions = [
-    { value: 'Since', label: 'Since' },
-    { value: 'Until', label: 'Until' }
+    { value: 'Since', label: tSwitcher('since') },
+    { value: 'Until', label: tSwitcher('until') }
   ];
 
   const handleRefresh = () => {
@@ -45,7 +50,7 @@ export default function SincePageClient() {
         <section className="params-list d-flex justify-content-between flex-column">
           <div className="setting-container setting-container--row d-flex justify-content-between">
             <div className="setting-list d-flex flex-row">
-              <SettingItem label="Date">
+              <SettingItem label={t('date')}>
                 <Input
                   variant="date"
                   value={date}
@@ -61,7 +66,7 @@ export default function SincePageClient() {
                 />
               </SettingItem>
 
-              <SettingItem label="Include last day">
+              <SettingItem label={t('includeLastDay')}>
                 <Checkbox
                   id="include-last-day_2"
                   checked={includeLastDay}
@@ -81,7 +86,7 @@ export default function SincePageClient() {
           <DaysCounter
             days={50}
             variant="row"
-            resultText="since 15.07.2025"
+            resultText={tSince('resultText')}
             onRefresh={handleRefresh}
             onExport={handleExport}
           />

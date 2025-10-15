@@ -5,6 +5,12 @@ $accent-color: #868BF1;
 $background-light: #CAD0FB;
 $background-options: #F0ECDD;
 
+// Toast colors
+$toast-success: #10b981;
+$toast-error: #ef4444;
+$toast-warning: #f59e0b;
+$toast-info: $accent-color;
+
 // Typography
 $font-primary: var(--font-sora), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 $font-manrope: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

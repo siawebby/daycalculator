@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import ReactCrop, { Crop, PixelCrop, centerCrop, makeAspectCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import { Modal } from './ui/Modal';
@@ -19,6 +20,7 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({
   imageFile,
   onCropComplete
 }) => {
+  const t = useTranslations('imageCropper');
   const [imageUrl, setImageUrl] = useState<string>('');
   const [crop, setCrop] = useState<Crop>();
   const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
@@ -106,7 +108,7 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Preview">
+    <Modal isOpen={isOpen} onClose={onClose} title={t('title')}>
       <div className="image-cropper d-flex flex-column">
         <div className="image-cropper-container d-flex align-items-center justify-content-center">
           <ReactCrop
@@ -118,23 +120,21 @@ export const ImageCropper: React.FC<ImageCropperProps> = ({
             <img
               ref={imgRef}
               alt="Crop me"
-              src={imageUrl}
+              src={imageUrl || undefined}
               onLoad={onImageLoad}
             />
           </ReactCrop>
         </div>
         
         <div className="cropper-controls">
-          <p className="cropper-instruction">
-            You can crop the image<br />
-            any way you like.
+          <p className="cropper-instruction" dangerouslySetInnerHTML={{ __html: t('instruction') }}>
           </p>
           <Button 
             onClick={onDownloadCropClick} 
             className="cropper-apply-btn"
             disabled={!completedCrop?.width || !completedCrop?.height}
           >
-            Use this image
+            {t('useImage')}
           </Button>
         </div>
         

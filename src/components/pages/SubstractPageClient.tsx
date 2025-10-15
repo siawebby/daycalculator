@@ -1,12 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Input, Checkbox, SettingItem, Select, Switcher, Icon, Button } from '../ui';
 import { DaysCounter } from '../DaysCounter';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
 
 export default function SubstractPageClient() {
+  const t = useTranslations('common');
+  const tAmount = useTranslations('amountOptions');
+  const tSwitcher = useTranslations('switcherOptions');
+  
   const [includeLastDay, setIncludeLastDay] = useState(false);
   const [businessDaysOnly, setBusinessDaysOnly] = useState(false);
   const [startDate, setStartDate] = useState('23 Sep, 2025');
@@ -17,14 +22,14 @@ export default function SubstractPageClient() {
   const [activeDatePicker, setActiveDatePicker] = useState<boolean>(false);
 
   const amountOptions = [
-    { value: 'Months', label: 'Months' },
-    { value: 'Days', label: 'Days' },
-    { value: 'Weeks', label: 'Weeks' }
+    { value: 'Months', label: tAmount('months') },
+    { value: 'Days', label: tAmount('days') },
+    { value: 'Weeks', label: tAmount('weeks') }
   ];
 
   const switcherOptions = [
-    { value: 'Add', label: 'Add' },
-    { value: 'Subtract', label: 'Subtract' }
+    { value: 'Add', label: tSwitcher('add') },
+    { value: 'Subtract', label: tSwitcher('subtract') }
   ];
 
   const handleRefresh = () => {
@@ -61,7 +66,7 @@ export default function SubstractPageClient() {
         <section className="params-list d-flex justify-content-between">
           <div className="setting-container">
             <div className="setting-list d-flex flex-column">
-              <SettingItem label="Start" icon="nav/calendar">
+              <SettingItem label={t('start')} icon="nav/calendar">
                 <Input
                   variant="date"
                   value={startDate}
@@ -77,7 +82,7 @@ export default function SubstractPageClient() {
                 />
               </SettingItem>
 
-              <SettingItem label="Amount" icon="chart_pie">
+              <SettingItem label={t('amount')} icon="chart_pie">
                 <Input
                   variant="day"
                   value={amount}
@@ -90,7 +95,7 @@ export default function SubstractPageClient() {
                 />
               </SettingItem>
 
-              <SettingItem label="Include last day" icon="bookmark">
+              <SettingItem label={t('includeLastDay')} icon="bookmark">
                 <Checkbox
                   id="include-last-day"
                   checked={includeLastDay}
@@ -98,7 +103,7 @@ export default function SubstractPageClient() {
                 />
               </SettingItem>
 
-              <SettingItem label="Business days only" icon="nav/portfolio">
+              <SettingItem label={t('businessDaysOnly')} icon="nav/portfolio">
                 <Checkbox
                   id="include-last-day_2"
                   checked={businessDaysOnly}

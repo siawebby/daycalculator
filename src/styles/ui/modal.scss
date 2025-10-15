@@ -23,13 +23,21 @@
 .modal-header {
   padding: $spacing-xl;
   flex-shrink: 0;
+
+  button {
+    &.btn-primary {
+      background-color: rgba($color: #000000, $alpha: 0);
+      padding: 0;
+    }
+  }
 }
 
 .modal-title {
   color: $secondary-color;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
   margin: 0;
+  font-family: $font-manrope;
 }
 
 .modal-close-btn {
@@ -121,15 +129,17 @@
   font-family: $font-manrope;
   margin: 0 0 $spacing-xl 0;
   line-height: 1.4;
+  font-weight: $font-weight-medium;
 }
 
 .cropper-apply-btn {
-  @include button-base;
   font-family: $font-manrope;
-  background: $secondary-color;
   width: 360px;
   height: 50px;
-  color: $primary-color;
-  border-radius: $border-radius-lg;
   font-weight: $font-weight-medium;
+
+  &.btn-primary {
+    border-radius: $border-radius-lg;
+    background-color: $secondary-color;
+  }
 }

@@ -1,0 +1,181 @@
+.toast-container {
+  position: fixed;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  z-index: $z-index-tooltip;
+  gap: $spacing-sm;
+  pointer-events: none;
+  
+  @media (max-width: $breakpoint-md) {
+    top: $spacing-md;
+    right: $spacing-md;
+    left: $spacing-md;
+  }
+}
+
+.toast {
+  background: $secondary-color; 
+  border-radius: $border-radius-sm;
+  box-shadow: 0 4px 12px rgba($primary-color, 0.15);
+  min-width: 300px;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all $transition-normal;
+  pointer-events: auto;
+  
+  @media (max-width: $breakpoint-md) {
+    min-width: auto;
+    max-width: none;
+    transform: translateY(-100%);
+  }
+  
+  &--visible {
+    opacity: 1;
+    transform: translateX(0);
+    
+    @media (max-width: $breakpoint-md) {
+      transform: translateY(0);
+    }
+  }
+  
+  &--leaving {
+    opacity: 0;
+    transform: translateX(100%);
+    
+    @media (max-width: $breakpoint-md) {
+      transform: translateY(-100%);
+    }
+  }
+  
+  &--success {
+    border-left: 4px solid $toast-success;
+    
+    .toast__icon {
+      color: $toast-success;
+    }
+  }
+  
+  &--error {
+    border-left: 4px solid $toast-error;
+    
+    .toast__icon {
+      color: $toast-error;
+    }
+  }
+  
+  &--warning {
+    border-left: 4px solid $toast-warning;
+    
+    .toast__icon {
+      color: $toast-warning;
+    }
+  }
+  
+  &--info {
+    border-left: 4px solid $toast-info;
+    
+    .toast__icon {
+      color: $toast-info;
+    }
+  }
+}
+
+.toast__content {
+  padding: $spacing-md;
+  gap: $spacing-sm;
+}
+
+.toast__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.toast__text {
+  min-width: 0;
+}
+
+.toast__title {
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $primary-color;
+  line-height: 1.4;
+  margin-bottom: $spacing-xs;
+}
+
+.toast__message {
+  font-family: $font-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  color: lighten($primary-color, 20%);
+  line-height: 1.4;
+}
+
+.toast__close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  color: lighten($primary-color, 40%);
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+// Animation keyframes
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes toast-slide-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-slide-out-mobile {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}

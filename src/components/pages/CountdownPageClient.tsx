@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Input, Upload, Icon, Button } from '../ui';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
 import { ImageCropper } from '../ImageCropper';
 
 export default function CountdownPageClient() {
+  const t = useTranslations('common');
   const [eventLabel, setEventLabel] = useState("Jon's Birthday");
   const [date, setDate] = useState('23 Sep, 2025');
   const [time, setTime] = useState('12 p.m.');
@@ -54,7 +56,7 @@ export default function CountdownPageClient() {
             <div className="setting-list d-flex flex-column">
               <div className="setting-item d-flex justify-content-between align-items-center">
                 <div className="setting-label d-flex align-items-center">
-                  <Icon name="tag" /> Event Label
+                  <Icon name="tag" /> {t('eventLabel')}
                 </div>
                 <div className="setting-input d-flex">
                   <Input 
@@ -67,7 +69,7 @@ export default function CountdownPageClient() {
               
               <div className="setting-item d-flex justify-content-between align-items-center">
                 <div className="setting-label d-flex align-items-center">
-                  <Icon name="nav/calendar" /> Date
+                  <Icon name="nav/calendar" /> {t('date')}
                 </div>
                 <div className="setting-input d-flex">
                   <Input 

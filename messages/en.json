@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "title": "Day Calculator",
+    "description": "Calculate days between dates, business days, countdown and more"
+  },
+  "navigation": {
+    "duration": "Duration",
+    "addSubtract": "Add/Subtract",
+    "businessDays": "Business Days",
+    "countdown": "Countdown",
+    "daysSinceUntil": "Days since/until",
+    "hoursToDays": "Hours to Days"
+  },
+  "common": {
+    "start": "Start",
+    "end": "End",
+    "date": "Date",
+    "time": "Time",
+    "amount": "Amount",
+    "result": "Result",
+    "calculating": "Calculating…",
+    "refresh": "Refresh",
+    "export": "Export",
+    "includeLastDay": "Include last day",
+    "businessDaysOnly": "Business days only",
+    "weekendPattern": "Weekend pattern",
+    "state": "State",
+    "eventLabel": "Event Label",
+    "add": "Add",
+    "subtract": "Subtract",
+    "since": "Since",
+    "until": "Until",
+    "days": "days",
+    "weeks": "weeks",
+    "months": "months",
+    "years": "years",
+    "saturday": "Saturday",
+    "saturdays": "Saturdays",
+    "sunday": "Sunday",
+    "sundays": "Sundays",
+    "holiday": "holiday",
+    "holidays": "holidays",
+    "excluded": "Excluded:",
+    "calendarDays": "calendar days",
+    "daysSkipped": "days skipped",
+    "andHours": "And 16 hours"
+  },
+  "weekendOptions": {
+    "satSun": "Sat+Sun",
+    "friSat": "Fri+Sat",
+    "sunMon": "Sun+Mon"
+  },
+  "stateOptions": {
+    "germany": "Germany",
+    "usa": "USA",
+    "uk": "UK"
+  },
+  "amountOptions": {
+    "months": "Months",
+    "days": "Days",
+    "weeks": "Weeks"
+  },
+  "switcherOptions": {
+    "add": "Add",
+    "subtract": "Subtract",
+    "since": "Since",
+    "until": "Until"
+  },
+  "footer": {
+    "copyright": "© 2025. DayСalсulator",
+    "backToTop": "Наверх"
+  },
+  "options": {
+    "title": "What else we can do",
+    "businessCalculator": {
+      "title": "Business Days Calculator",
+      "description": "Calculate working days between two dates, excluding weekends and holidays. Perfect for project planning, contract deadlines, and business scheduling. Get accurate business day counts for any date range."
+    },
+    "countdownTimer": {
+      "title": "Countdown Timer",
+      "description": "Create countdown timers for important events like birthdays, holidays, project deadlines, and special occasions. Track time remaining with precision down to the minute."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "description": "Calculate the exact number of days, weeks, months, and years between any two dates with precision. Perfect for age calculations, project timelines, and date comparisons."
+    }
+  },
+  "info": {
+    "title": "How to use the day calculator",
+    "description1": "Our free day calculator is designed to help you calculate the exact number of days between any two dates. Simply select your start and end dates using the intuitive date picker, and our calculator will instantly provide you with accurate results. Use the \"Include last day\" option to include the end date in your calculation, which is perfect for project deadlines, contract periods, and event planning.",
+    "description2": "For business calculations, enable the \"Business days only\" option to exclude weekends and holidays from your count. This feature is essential for project management, work scheduling, and business planning. Our calculator supports different weekend patterns and can account for various holidays depending on your location and requirements.",
+    "description3": "The day calculator provides comprehensive results including total days, weeks, months, and years between dates. It automatically breaks down the calculation to show weekend days, business days, and any excluded holidays. Whether you're planning a project, tracking time since an event, or calculating deadlines, our tool delivers precise results instantly with a user-friendly interface."
+  },
+  "business": {
+    "additionalInfo": "58 calendar days - 17 days skipped",
+    "holidays": {
+      "dayOfGermanUnity": "Day of German Unity"
+    }
+  },
+  "since": {
+    "resultText": "since 15.07.2025"
+  },
+  "imageCropper": {
+    "title": "Preview",
+    "instruction": "You can crop the image<br />any way you like.",
+    "useImage": "Use this image"
+  },
+  "upload": {
+    "title": "Choose a file or drag & drop it here",
+    "subtitle": "JPG, JPEG, PNG formats, up to 50MB",
+    "browseFile": "Browse File",
+    "errorFileType": "Only JPG, JPEG or PNG files are allowed.",
+    "errorFileSize": "File is too large. Maximum size: {maxSize}MB"
+  },
+  "validation": {
+    "error": "Validation Error",
+    "invalidStartDate": "Invalid start date format",
+    "invalidEndDate": "Invalid end date format",
+    "endDateBeforeStartDate": "End date cannot be before start date",
+    "startDateRequired": "Start date is required and must be a non-empty string",
+    "endDateRequired": "End date is required and must be a non-empty string",
+    "includeLastDayBoolean": "Include last day must be a boolean value",
+    "invalidJson": "Invalid JSON in request body",
+    "requestBodyObject": "Request body must be an object",
+    "invalidDateFormat": "Invalid date format. Expected like: 23 Sep, 2025",
+    "calculationError": "Calculation Error",
+    "unknownError": "Unknown error occurred",
+    "calculationComplete": "Calculation Complete",
+    "durationCalculated": "Duration calculated successfully"
+  }
+}

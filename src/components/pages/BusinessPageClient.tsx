@@ -1,12 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Input, Checkbox, SettingItem, Select, Icon, Button } from '../ui';
 import { DaysCounter } from '../DaysCounter';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
 
 export default function BusinessPageClient() {
+  const t = useTranslations('common');
+  const tWeekend = useTranslations('weekendOptions');
+  const tState = useTranslations('stateOptions');
+  const tBusiness = useTranslations('business');
+  
   const [includeLastDay, setIncludeLastDay] = useState(false);
   const [businessDaysOnly, setBusinessDaysOnly] = useState(false);
   const [startDate, setStartDate] = useState('23 Sep, 2025');
@@ -18,15 +24,15 @@ export default function BusinessPageClient() {
   const [activeDatePicker, setActiveDatePicker] = useState<'start' | 'end' | null>(null);
 
   const weekendOptions = [
-    { value: 'Sat+Sun', label: 'Sat+Sun' },
-    { value: 'Fri+Sat', label: 'Fri+Sat' },
-    { value: 'Sun+Mon', label: 'Sun+Mon' }
+    { value: 'Sat+Sun', label: tWeekend('satSun') },
+    { value: 'Fri+Sat', label: tWeekend('friSat') },
+    { value: 'Sun+Mon', label: tWeekend('sunMon') }
   ];
 
   const stateOptions = [
-    { value: 'Germany', label: 'Germany' },
-    { value: 'USA', label: 'USA' },
-    { value: 'UK', label: 'UK' }
+    { value: 'Germany', label: tState('germany') },
+    { value: 'USA', label: tState('usa') },
+    { value: 'UK', label: tState('uk') }
   ];
 
   const handleRefresh = () => {
@@ -65,7 +71,7 @@ export default function BusinessPageClient() {
         <section className="params-list d-flex justify-content-between">
           <div className="setting-container">
             <div className="setting-list d-flex flex-column">
-              <SettingItem label="Start" icon="nav/calendar">
+              <SettingItem label={t('start')} icon="nav/calendar">
                   <Input 
                     variant="date" 
                     value={startDate} 
@@ -81,7 +87,7 @@ export default function BusinessPageClient() {
                   />
               </SettingItem>
               
-              <SettingItem label="End" icon="nav/calendar">
+              <SettingItem label={t('end')} icon="nav/calendar">
                   <Input 
                     variant="date" 
                     value={endDate}  
@@ -97,7 +103,7 @@ export default function BusinessPageClient() {
                   />
               </SettingItem>
               
-              <SettingItem label="Weekend pattern" icon="smile">
+              <SettingItem label={t('weekendPattern')} icon="smile">
                 <Select
                   options={weekendOptions}
                   value={weekendPattern}
@@ -105,7 +111,7 @@ export default function BusinessPageClient() {
                 />
               </SettingItem>
               
-              <SettingItem label="State" icon="location">
+              <SettingItem label={t('state')} icon="location">
                 <Select
                   options={stateOptions}
                   value={state}
@@ -113,7 +119,7 @@ export default function BusinessPageClient() {
                 />
               </SettingItem>
               
-              <SettingItem label="Business days only" icon="nav/portfolio">
+              <SettingItem label={t('businessDaysOnly')} icon="nav/portfolio">
                 <Checkbox
                   id="include-last-day_2"
                   checked={businessDaysOnly}
@@ -125,12 +131,12 @@ export default function BusinessPageClient() {
           
           <DaysCounter
             days={41}
-            additionalInfo="58 calendar days - 17 days skipped"
+            additionalInfo={tBusiness('additionalInfo')}
             excludedInfo={{
               saturdays: 8,
               sundays: 8,
               holidays: [
-                { name: 'Day of German Unity', count: 1 }
+                { name: tBusiness('holidays.dayOfGermanUnity'), count: 1 }
               ]
             }}
             onRefresh={handleRefresh}

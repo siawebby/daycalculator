@@ -3,6 +3,8 @@ import { Sora, Manrope, Inter, Montserrat, Hind } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 // Configure fonts
 const sora = Sora({
@@ -40,17 +42,21 @@ export const metadata: Metadata = {
   description: "Calculate days between dates, business days, countdown and more",
 };
 
-export default function RootLayout({
-  children,
+export default async function RootLayout({
+  children, 
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const messages = await getMessages();
+  
   return (
     <html lang="en" className={`${sora.variable} ${manrope.variable} ${inter.variable} ${montserrat.variable} ${hind.variable}`}>
       <body className="d-flex flex-column justify-content-between">
-        <Header />
-        {children}
-        <Footer />
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body> 
     </html>
   );

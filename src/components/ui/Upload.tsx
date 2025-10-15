@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { Button } from './Button';
 
 interface UploadProps {
@@ -18,17 +19,19 @@ export const Upload: React.FC<UploadProps> = ({
   className = '',
   onImageSelect
 }) => {
+  const t = useTranslations('upload');
+  
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       // Проверка расширения файла (разрешены только jpg, jpeg, png)
       const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
       if (!allowedTypes.includes(file.type)) {
-        alert('Доступны только файлы JPG, JPEG или PNG.');
+        alert(t('errorFileType'));
         return;
       }
       if (file.size > maxSize) {
-        alert(`Файл слишком большой. Максимальный размер: ${maxSize / (1024 * 1024)}MB`);
+        alert(t('errorFileSize', { maxSize: maxSize / (1024 * 1024) }));
         return;
       }
       
@@ -45,10 +48,10 @@ export const Upload: React.FC<UploadProps> = ({
     <div className={`upload-container ${className}`}>
       <label htmlFor="upload-input" className="upload-dropzone d-flex align-items-center justify-content-center">
         <div className="upload-content">
-          <div className="upload-title">Choose a file or drag & drop it here</div>  
-          <div className="upload-subtitle">JPG, JPEG, PNG formats, up to 50MB</div>
+          <div className="upload-title">{t('title')}</div>  
+          <div className="upload-subtitle">{t('subtitle')}</div>
           <Button variant="secondary" type="button" className="btn-browse">
-            Browse File
+            {t('browseFile')}
           </Button>
         </div>
       </label>
