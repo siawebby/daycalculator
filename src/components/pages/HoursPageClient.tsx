@@ -39,6 +39,14 @@ export default function HoursPageClient() {
     <main>
       <div className="container">
         <section className="params-list d-flex justify-content-between flex-column">
+          <div className="in-tablet d-flex justify-content-end">
+            <Switcher
+              options={switcherOptions}
+              activeValue={switcherValue}
+              onChange={setSwitcherValue}
+              variant="default"
+            />
+          </div>
           <div className="setting-container setting-container--row d-flex justify-content-between">
             <div className="setting-list d-flex flex-row">
               <SettingItem label={t('amount')}>
@@ -55,12 +63,14 @@ export default function HoursPageClient() {
               </SettingItem>
             </div>
 
-            <Switcher
-              options={switcherOptions}
-              activeValue={switcherValue}
-              onChange={setSwitcherValue}
-              variant="since"
-            />
+            <div className="in-desktop">
+              <Switcher
+                options={switcherOptions}
+                activeValue={switcherValue}
+                onChange={setSwitcherValue}
+                variant="since"
+              />
+            </div>
           </div>
 
           <DaysCounter

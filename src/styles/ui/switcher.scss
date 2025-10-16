@@ -7,21 +7,26 @@
     padding: $spacing-xs;
     width: 244px;
     max-width: 100%;
-    
-    > button {
+
+    >button {
       border-radius: $border-radius-md;
       padding: $spacing-xs 0;
       width: 100%;
       background-color: rgba(0, 0, 0, 0);
       transition: all $transition-slow;
-      
+
       &.active {
         background-color: $accent-color;
         transition: all $transition-slow;
       }
     }
+
+    @include tablet {
+      width: 100%;
+      margin-bottom: $spacing-md;
+    }
   }
-  
+
   &--since {
     border-radius: $border-radius-md;
     background-color: $secondary-color;
@@ -29,14 +34,14 @@
     padding: $spacing-xs;
     width: 244px;
     max-width: 100%;
-    
-    > button {
+
+    >button {
       border-radius: $border-radius-md;
       padding: $spacing-xs 0;
       width: 100%;
       background-color: rgba(0, 0, 0, 0);
       transition: all $transition-slow;
-      
+
       &.active {
         background-color: $accent-color;
         transition: all $transition-slow;

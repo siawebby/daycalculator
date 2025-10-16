@@ -21,6 +21,8 @@
     "calculating": "Calculating…",
     "refresh": "Refresh",
     "export": "Export",
+    "exportSuccess": "Export Created",
+    "exportLinkCopied": "Export link copied to clipboard",
     "includeLastDay": "Include last day",
     "businessDaysOnly": "Business days only",
     "weekendPattern": "Weekend pattern",
@@ -126,6 +128,7 @@
     "calculationError": "Calculation Error",
     "unknownError": "Unknown error occurred",
     "calculationComplete": "Calculation Complete",
-    "durationCalculated": "Duration calculated successfully"
+    "durationCalculated": "Duration calculated successfully",
+    "exportError": "Failed to create export link"
   }
 }

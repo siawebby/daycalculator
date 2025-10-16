@@ -51,7 +51,6 @@
       gap: $spacing-xl;
       
       .setting-item {
-        gap: 10px;
         
         &:not(:last-child) {
           padding-bottom: 0;
@@ -62,7 +61,6 @@
     @include mobile {
       flex-direction: column-reverse;
       border-radius: $border-radius-md;
-      gap: 10px;
     }
   }
   
@@ -79,11 +77,6 @@
       .setting-item {
         &:not(:last-child) {
           padding-bottom: $spacing-lg;
-        }
-        
-        .setting-input {
-          flex-wrap: wrap;
-          gap: 10px;
         }
       }
     }

@@ -60,6 +60,20 @@ main {
   }
 }
 
+.in-desktop {
+  display: block;
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.in-tablet {
+  display: none;
+  @include tablet {
+    display: flex;
+  }
+}
+
 .w-4 {
   width: 1rem;
 }

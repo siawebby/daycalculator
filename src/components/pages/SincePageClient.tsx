@@ -6,6 +6,7 @@ import { Input, Checkbox, SettingItem, Switcher, Icon, Button } from '../ui';
 import { DaysCounter } from '../DaysCounter';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
+import { getCurrentDateAsUiString } from '../../utils/dateUtils';
 
 export default function SincePageClient() {
   const t = useTranslations('common');
@@ -13,7 +14,7 @@ export default function SincePageClient() {
   const tSince = useTranslations('since');
   
   const [includeLastDay, setIncludeLastDay] = useState(false);
-  const [date, setDate] = useState('23 Sep, 2025');
+  const [date, setDate] = useState(getCurrentDateAsUiString());
   const [time, setTime] = useState('12 p.m.');
   const [switcherValue, setSwitcherValue] = useState('Since');
   const [activeDatePicker, setActiveDatePicker] = useState<boolean>(false);
@@ -48,6 +49,14 @@ export default function SincePageClient() {
     <main>
       <div className="container">
         <section className="params-list d-flex justify-content-between flex-column">
+          <div className="in-tablet d-flex justify-content-end">
+            <Switcher
+              options={switcherOptions}
+              activeValue={switcherValue}
+              onChange={setSwitcherValue}
+              variant="default"
+            />
+          </div>
           <div className="setting-container setting-container--row d-flex justify-content-between">
             <div className="setting-list d-flex flex-row">
               <SettingItem label={t('date')}>
@@ -75,12 +84,14 @@ export default function SincePageClient() {
               </SettingItem>
             </div>
 
-            <Switcher
-              options={switcherOptions}
-              activeValue={switcherValue}
-              onChange={setSwitcherValue}
-              variant="since"
-            />
+            <div className="in-desktop">
+              <Switcher
+                options={switcherOptions}
+                activeValue={switcherValue}
+                onChange={setSwitcherValue}
+                variant="since"
+              />
+            </div>
           </div>
 
           <DaysCounter

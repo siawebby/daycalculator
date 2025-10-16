@@ -30,6 +30,10 @@
     padding: $spacing-xs $spacing-lg;
     box-shadow: 0 4px 20px rgba($primary-color, 0.1);
     min-width: 240px;
+
+    @include tablet {
+      left: -120px;
+    }
   }
 
   // Вьюпорт на 3 строки по высоте. Централ ьная строка — активная.
@@ -55,8 +59,14 @@
       background: rgba($primary-color, 0.12);
       pointer-events: none;
     }
-    &::before { top: 56px; }
-    &::after { top: 112px; }
+
+    &::before {
+      top: 56px;
+    }
+
+    &::after {
+      top: 112px;
+    }
   }
 
   &__column {
@@ -64,9 +74,14 @@
     max-height: 100%;
     scrollbar-width: none; // Firefox
     -ms-overflow-style: none; // IE 10+
-    &::-webkit-scrollbar { display: none; } // Chrome/Safari
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // Chrome/Safari
     padding: 0 $spacing-xs;
-    
+
     // Scroll snap для фиксированного скролла
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -79,16 +94,16 @@
   &__separator {
     font-weight: $font-weight-medium;
   }
- 
-  &__item { 
+
+  &__item {
     height: 56px;
-    border-radius: $border-radius-sm; 
+    border-radius: $border-radius-sm;
     font-family: $font-inter;
     color: rgba($primary-color, 0.5);
     cursor: pointer;
-    transition: color $transition-fast; 
+    transition: color $transition-fast;
     font-weight: $font-weight-medium;
-    
+
     // Scroll snap для каждого элемента 
     scroll-snap-align: center;
 
@@ -109,5 +124,3 @@
     border-radius: $border-radius-md;
   }
 }
-
-

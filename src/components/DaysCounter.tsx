@@ -84,11 +84,11 @@ export const DaysCounter: React.FC<DaysCounterProps> = ({
               </>
             ) : (
               <>
-                {weeks && <span>{weeks} {t('weeks')}</span>}
-                {weeks && months && <span>/</span>}
-                {months && <span>{months} {t('months')}</span>}
-                {months && years && <span>/</span>}
-                {years && <span>{years} {t('years')}</span>}
+                {weeks && weeks > 0 && <span>{weeks} {t('weeks')}</span>}
+                {weeks && weeks > 0 && months && months > 0 && <span>/</span>}
+                {months && months > 0 && <span>{months} {t('months')}</span>}
+                {months && months > 0 && years && years > 0 && <span>/</span>}
+                {years && years > 0 && <span>{years} {t('years')}</span>}
               </>
             )}
           </div>

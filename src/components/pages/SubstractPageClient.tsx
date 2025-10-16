@@ -6,6 +6,7 @@ import { Input, Checkbox, SettingItem, Select, Switcher, Icon, Button } from '..
 import { DaysCounter } from '../DaysCounter';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
+import { getCurrentDateAsUiString } from '../../utils/dateUtils';
 
 export default function SubstractPageClient() {
   const t = useTranslations('common');
@@ -14,7 +15,7 @@ export default function SubstractPageClient() {
   
   const [includeLastDay, setIncludeLastDay] = useState(false);
   const [businessDaysOnly, setBusinessDaysOnly] = useState(false);
-  const [startDate, setStartDate] = useState('23 Sep, 2025');
+  const [startDate, setStartDate] = useState(getCurrentDateAsUiString());
   const [startTime, setStartTime] = useState('12 p.m.');
   const [amount, setAmount] = useState('15');
   const [amountType, setAmountType] = useState('Months');

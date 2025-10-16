@@ -21,10 +21,6 @@
     @include mobile {
       width: 140px;
     }
-
-    @media (max-width: $breakpoint-sm) {
-      width: 130px;
-    }
   }
 
   &__calendar {

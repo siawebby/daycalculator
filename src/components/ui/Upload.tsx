@@ -3,6 +3,7 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Button } from './Button';
+import { useToastStore } from '../../store/toastStore';
 
 interface UploadProps {
   onFileSelect: (file: File) => void;
@@ -18,8 +19,9 @@ export const Upload: React.FC<UploadProps> = ({
   maxSize = 50 * 1024 * 1024, // 50MB
   className = '',
   onImageSelect
-}) => {
+}) => { 
   const t = useTranslations('upload');
+  const { addToast } = useToastStore();
   
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -27,11 +29,19 @@ export const Upload: React.FC<UploadProps> = ({
       // Проверка расширения файла (разрешены только jpg, jpeg, png)
       const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
       if (!allowedTypes.includes(file.type)) {
-        alert(t('errorFileType'));
+        addToast({
+          type: 'error',  
+          title: t('errorFileType'),
+          duration: 5000
+        });
         return;
       }
       if (file.size > maxSize) {
-        alert(t('errorFileSize', { maxSize: maxSize / (1024 * 1024) }));
+        addToast({
+          type: 'error',
+          title: t('errorFileSize', { maxSize: maxSize / (1024 * 1024) }),
+          duration: 5000
+        });
         return;
       }
       

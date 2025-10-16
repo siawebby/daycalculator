@@ -6,6 +6,7 @@ import { Input, Checkbox, SettingItem, Select, Icon, Button } from '../ui';
 import { DaysCounter } from '../DaysCounter';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
+import { getCurrentDateAsUiString } from '../../utils/dateUtils';
 
 export default function BusinessPageClient() {
   const t = useTranslations('common');
@@ -15,9 +16,9 @@ export default function BusinessPageClient() {
   
   const [includeLastDay, setIncludeLastDay] = useState(false);
   const [businessDaysOnly, setBusinessDaysOnly] = useState(false);
-  const [startDate, setStartDate] = useState('23 Sep, 2025');
+  const [startDate, setStartDate] = useState(getCurrentDateAsUiString());
   const [startTime, setStartTime] = useState('12 p.m.');
-  const [endDate, setEndDate] = useState('23 Sep, 2025');
+  const [endDate, setEndDate] = useState(getCurrentDateAsUiString());
   const [endTime, setEndTime] = useState('12 p.m.');
   const [weekendPattern, setWeekendPattern] = useState('Sat+Sun');
   const [state, setState] = useState('Germany');

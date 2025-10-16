@@ -6,11 +6,12 @@ import { Input, Upload, Icon, Button } from '../ui';
 import OptionsSection from '../OptionsSection';
 import InfoSection from '../InfoSection';
 import { ImageCropper } from '../ImageCropper';
+import { getCurrentDateAsUiString } from '../../utils/dateUtils';
 
 export default function CountdownPageClient() {
   const t = useTranslations('common');
   const [eventLabel, setEventLabel] = useState("Jon's Birthday");
-  const [date, setDate] = useState('23 Sep, 2025');
+  const [date, setDate] = useState(getCurrentDateAsUiString());
   const [time, setTime] = useState('12 p.m.');
   const [activeDatePicker, setActiveDatePicker] = useState<boolean>(false);
   const [isCropperOpen, setIsCropperOpen] = useState(false);
