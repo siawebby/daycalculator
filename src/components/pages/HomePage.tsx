@@ -51,17 +51,6 @@ export default function HomePage({
     }
   }, [error, addToast, tValidation]);
 
-  // Автоматический пересчет при изменении параметров
-  useEffect(() => {
-    calculate({
-      startDate,
-      endDate,
-      startTime,
-      endTime,
-      includeLastDay
-    });
-  }, [startDate, endDate, startTime, endTime, includeLastDay, calculate]);
-
   const handleRefresh = () => {
     calculate({
       startDate,

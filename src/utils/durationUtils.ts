@@ -18,25 +18,19 @@ function daysBetween(start: Date, end: Date, includeLastDay: boolean): number {
     return 0;
   }
   
+  // Обычная разница - только полные сутки
   const baseDays = Math.floor(diffMs / msPerDay);
   
-  // Проверяем, есть ли остаток времени более 12 часов
-  const remainderMs = diffMs % msPerDay;
-  const hasMoreThan12Hours = Math.abs(remainderMs) > (12 * 60 * 60 * 1000);
-  
-  let result = baseDays;
-  
-  // Если есть остаток более 12 часов, добавляем день
-  if (hasMoreThan12Hours) {
-    result += diffMs > 0 ? 1 : -1;
+  // Если includeLastDay включен, проверяем есть ли любой остаток времени
+  if (includeLastDay) {
+    const remainderMs = diffMs % msPerDay;
+    // Если есть любой остаток времени (даже 1 час), добавляем день
+    if (remainderMs > 0) {
+      return baseDays + 1;
+    }
   }
   
-  // Если includeLastDay и результат положительный, добавляем день
-  if (includeLastDay && result >= 0) {
-    result += 1;
-  }
-  
-  return result;
+  return baseDays;
 }
 
 export interface DurationResult {
